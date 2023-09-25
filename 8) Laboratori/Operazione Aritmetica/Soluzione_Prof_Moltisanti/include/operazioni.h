@@ -1,0 +1,5 @@
+#include "operazione_aritmetica.h"
+#include "addizione.h"
+#include "sottrazione.h"
+#include "moltiplicazione.h"
+#include "divisione.h"

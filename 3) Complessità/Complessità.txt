@@ -1,0 +1,121 @@
+L'esecuzione di un programma implica un costo economico, dovuto all'utilizzo delle risorse e di tempo di elaborazione.
+In informatica il calcolo asintotico è utilizzato per analizzare la complessità di un algoritmo.
+In genere si parla di
+
+Complessità spaziale: per intendere l'utilizzo delle risorse(memoria) da parte di un programma.
+Complessità temporale: per intendere il tempo di esecuzione di un programma.
+
+La complessità temporale cresce al crescere della dimensione n dei dati in input.
+
+Notazione asintotica O grande(caso peggiore) (non piu di)
+-----------------------------
+Data un'istanza di dimensione n, nel caso peggiore l'algoritmo ha una complessità temporale O(f(n)) se T(n)=O(f(n)).
+Dove n è il numero delle righe eseguite mentre f(n) è un limite asintotico superiore del tempo di esecuzione dell'algoritmo nell'ipotesi peggiore.
+
+
+Notazione asintotica Teta grande(caso medio)
+
+
+Notazione asintotica Omega grande(caso migliore) (almeno)
+
+
+Per un dato problema P consideriamo un algoritmo A che lo risolve:
+
+- Se A prende tempo t(n) diremo che O(t(n)) è un limite asintotico superiore.
+
+- Se riusciamo a provare che nessun algoritmo può far meglio di t(n) diremo che Ω(t(n)) è un limite asintotico inferiore.
+
+- A è ottimo se i due limiti coincidono e in tal caso la complessità computazionale del problema è Θ(t(n)).
+
+Un algoritmo A che risolve un problema P è ottimale se:
+1. P ha complessità Ω(f(n))   //nel caso migliore ho una certa complessità
+2. A ha complessità O(f(n))   //nel caso peggiore ho la stessa complessità
+
+
+
+O(1) :
+----------
+complessità di una funzione o blocco di istruzioni ciascuna di costo O(1), che non contengono cicli,
+ricorsione o chiamate ad altre funzioni non costanti.
+
+O(n) : 
+---------
+complessità di un ciclo quando le sue variabili (es. contatore) sono incrementate/decrementate di una quantità costante.
+
+// c è una costante positiva
+
+for (int i = 0; i <= n; i += c) 
+{
+  //espressioni con costo O(1)
+}
+
+
+O(n alla c) : 
+---------
+la complessità di cicli annidati è uguale al numero di volte in cui le istruzioni del ciclo interno
+vengono eseguite.
+
+// c è una costante positiva
+
+for(int i = 1; i <=n; i += c) 
+{
+   for (int j = 1; j <=n; j += c) 
+   {
+     //espressioni con costo O(1)
+   }
+}
+
+O(Logn) : 
+------
+complessità di un ciclo quando le sue variabili sono incrementate/decrementate 
+moltiplicandole/dividendole per una costante.
+
+// c è una costante positiva
+
+for (int i = 1; i <= n; i *= c) 
+{
+  //espressioni con costo O(1)
+}
+
+for (int i = 1; i <= n; i /= c) 
+{
+  //espressioni con costo O(1)
+}
+
+O(LogLogn) : 
+-----------
+complessità di un ciclo quando le sue variabili sono incrementate/decrementate esponenzialmente.
+
+// c è una costante positiva > 1
+
+for(int i = 2; i <=n; i = pow(i,c)) 
+{
+  //espressioni con costo O(1)
+}
+
+RELAZIONE DI RICORRENZA
+-----------------------
+Le relazioni di ricorrenza descrivono in modo preciso le prestazioni degli algoritmi ricorsivi in esame.
+
+Ricorrenze fondamentali: 
+
+C = (n^2)/2
+-----------
+Questa formula si usa per programmi che ciclano sull’input ‘’eliminando’’ un elemento per volta.
+
+C = log n
+-----------
+Questa formula si usa tipicamente con un programma ricorsivo che dimezza l’input ad ogni passo
+
+C = 2n
+----------
+Questa formula si usa tipicamente con un programma ricorsivo che dimezza l’input ed esamina,
+eventualmente, ogni elemento di esso
+
+oppure 
+
+Questa formula si usa tipicamente con un programma ricorsivo che dimezza l’input ed esegue una quantità di lavoro addizionale costante.
+
+C = n log n
+------------
+Questa formula si usa tipicamente con un programma ricorsivo che esegue una scansione lineare dell’input prima, durante, oppure dopo aver suddiviso l’input in due parti.

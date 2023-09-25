@@ -1,0 +1,127 @@
+Algoritmi di sorting:
+
+• Selection sort
+• Insertion sort
+• Bubblesort
+• Mergesort
+• Quicksort
+
+SELECTION SORT:
+---------------
+L’algoritmo di volta in volta seleziona l’elemento minore del sottoarray non ordinato e lo posiziona al primo posto.
+Si scorre l'array e si salva l'indice dell'elemento minore per poi scambiarne la posizione con l'i-esimo elemento.
+
+Non può essere migliorato.
+
+Complessità O(n)^2 in qualunque caso
+
+
+INSERTION SORT:
+---------------
+L’ordinamento per inserimento diretto consiste nell’inserire un elemento alla volta nella posizione 
+che gli spetta in un vettore già ordinato, partendo da un vettore che contiene un solo elemento.
+Si aggiungono gli altri elementi uno per volta, posizionandoli direttamente nella posizione corretta.
+Un algoritmo di ordinamento che utilizza lo stesso metodo che un essere umano usa per ordinare le sue 
+carte in mano.
+Dunque fa un tipo di ordinamento IN LOCO, ovvero non crea un array di appoggio, risparmiando in questo modo memoria.
+L’algoritmo ha bisogno di due indici, uno che punta all’elemento da ordinare e l’altro a quello 
+immediatamente precedente.
+Il passo successivo consiste nel confrontare i due elementi, se l’elemento puntato dal secondo indice è 
+maggiore del primo gli elementi allora vengono scambiati.
+
+Si può migliorare sfruttando il meccanismo della ricerca binaria per collocare l'elemento corrente nella posizione corretta.
+
+Complessità O(n)^2 nel caso medio e peggiore e O(n) nel caso migliore
+
+NB.Le costanti di applicazione hanno più impatto sul selection sort che sull'insertion sort, quindi anche a 
+parità di complessità , è più efficiente l'insertion.
+
+
+BUBBLE SORT:
+--------------
+Per ogni iterazione si confrontano gli elementi adiacenti e si scambiano i loro valori quando il primo è 
+maggiore del secondo. Come conseguenza, abbiamo che il maggiore "risale" fino alla cima del vettore ad 
+ogni iterazione. Dopo n-1 iterazioni l’array risulterà ordinato.
+
+Complessità O(n)^2 in qualunque caso
+
+Si può migliorare la strategia utilizzando un flag che consente di ripetere fino a quando ci sono degli
+scambi da fare. Nel caso migliore la complessità  sarà 0(n), nel caso peggiore anche col flag rimane O(n)^2
+
+-------------------------------------------------------------------------------------------
+
+Algoritmi di ordinamento Ricorsivi:
+
+La suddivisione del problema è ripetuta fino a trovare un caso base semplice da risolvere.
+	
+Passo 1:
+  Spezzare l'array fino ad ottenere un sottoproblema di dimensione 1 (un elemento è sempre ordinato).
+	
+Passo 2:
+  Nel caso base non devo fare nulla.
+	
+Passo 3:
+  Combinare le soluzioni(cuore dell'algoritmo).
+
+
+MERGE SORT:
+------------
+Il merge sort è un algoritmo di ordinamento basato su confronti che utilizza un processo di risoluzione
+ricorsivo, sfruttando la tecnica del Divide et Impera, che consiste nella suddivisione del problema 
+in sottoproblemi della stessa natura di dimensione via via più piccola.
+
+- 1 problema di dimensione N
+- N problemi di dimensione 1
+	
+Concettualmente, l'algoritmo funziona nel seguente modo:
+
+Se la sequenza da ordinare ha lunghezza 0 oppure 1, è già ordinata. Altrimenti:
+
+• La sequenza viene divisa (divide) in due metà di n/2 elementi (se la sequenza contiene un numero dispari 
+di elementi,viene divisa in due sottosequenze di cui la prima ha un elemento in più della seconda).
+
+• Le due sottosequenze vengono ordinate in maniera ricorsiva fino a quando si ottengono delle sequenze 
+composte da un solo elemento.
+
+• A questo punto la procedura MERGE unisce due sottosequenze ordinate. Per fare questo, si estrae ripetutamente
+il minimo delle due sottosequenze e lo si pone nella sequenza in uscita, che risulterà ordinata.
+Vengono utilizzati 3 Array : uno per i, uno per j, e k che è il finale 
+
+La creazione di due array ausiliari causa un'incremento della complessità spaziale, anche se non temporale, 
+dell'algoritmo. Sostanzialmente si necessita del doppio della memoria che occuperebbe l'input iniziale.
+
+La complessità è la medesima in tutti e tre i casi perché l’algoritmo divide sempre le sequenze a metà 
+impiegando un tempo O(log n) e le unisce impiegando un tempo lineare O(n).
+
+Complessità totale : O(n log n) in ogni caso
+
+
+QUICK SORT:
+------------
+Il Quicksort è l’algoritmo di ordinamento più efficiente. L'algoritmo è in-place, ovvero non utilizza array
+ausiliari per il riordinamento (complessità spaziale < del merge). Si basa sulla divisione del vettore in tre 
+partizioni:
+
+• Centrale: contenente un solo elemento detto pivot
+• Sinistra: contenente tutti gli elementi minori del pivot
+• Destra: contenente tutti gli elementi maggiori del pivot
+
+Preso un elemento chiamato "pivot" da una struttura dati si pongono gli elementi minori a sinistra rispetto 
+al pivot e gli elementi maggiori a destra.
+
+Come conseguenza avremo che tutti gli elementi della partizione sinistra saranno minori del più piccolo della 
+partizione di destra. Si applica ricorsivamente l’algoritmo sulle partizioni sinistra e
+destra fino ad ordinare tutto il vettore. 
+
+Il pivot può essere scelto a caso. Tendenzialmente il pivot è sempre l'ultimo elemento dell'array. 
+Possiamo definire una procedura PARTITION che effettua la partizione e restituisce la posizione del pivot.
+
+• Caso migliore: Se il pivot non è troppo vicino all'elemento massimo o minimo, quindi le partizioni hanno
+	      più o meno n/2 elementi
+
+Complessità del Quicksort è O(nlog n), nel caso migliore e medio
+
+• Caso peggiore: Se il pivot dovesse capitare in prossimità di uno dei due estremi (max o min) e le due
+	      partizioni hanno una 0 e una n-1 elementi
+
+Complessità del Quicksort è O(n)^2;
